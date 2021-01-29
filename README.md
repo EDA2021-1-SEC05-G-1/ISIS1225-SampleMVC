@@ -1,6 +1,6 @@
 #Integrantes 
 * Sebastián Contreras Salazar
-* Valentina Goyeneche 
+* Valentina Goyeneche
 
 
 #ISIS1225 - Estructura de un proyecto
