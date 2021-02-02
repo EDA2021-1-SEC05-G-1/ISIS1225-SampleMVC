@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along withthis program.  If not, see <http://www.gnu.org/licenses/>.
  """
+#Comunica vista y modelo. Leer archivos y trae funciones de model y recibe respuestas del mismo para enviarselas a view. 
 
 import config as cf
 import model
@@ -56,4 +57,9 @@ def loadBooksTags(catalog):
     """
     TODO
     """
-    pass
+    bookstagsfile = cf.data_dir + catalog #Es un str que tiene la dirección del archivo
+    input_file = csv.DictReader(open(bookstagsfile, encoding='utf-8')) #Se abre y lee todo el archivo separandolo por comas 
+    bookstags = model.createTagList() #Se llama al metodo model.py de la función de createtaglist para poder crear la lsita con los books y tags
+    for booktag in input_file: #Se hace un for in o un loop para que se saquen los booktags uno por uno
+        model.addBooksTags(bookstags, booktag)
+    return bookstags

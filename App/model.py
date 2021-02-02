@@ -23,7 +23,8 @@
  *
  * Dario Correal - Version inicial
  """
-
+#Contiene los datos en memoria principal. Se implementan todas las operaciones para los retos (busquedas y soluciones).
+#El modelo no debe conocer los datos como se presentan al usuario. No tiene ningun contacto con la vista.
 
 import config as cf
 from DISClib.ADT import list as lt
@@ -71,3 +72,8 @@ def createTagList():
     """
     taglist = lt.newList(datastructure='SINGLE_LINKED')
     return taglist
+
+def addBooksTags(booktaglist,punto):
+    'Esta función debe crear una lista para guardar infrormación de los books y los lists.'
+    'Aqui se guarda desde una linea del archivo a la lsita.'
+    lt.addLast(booktaglist,punto)

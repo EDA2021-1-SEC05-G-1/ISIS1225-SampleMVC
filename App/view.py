@@ -22,6 +22,9 @@
  *
  * Dario Correal - Version inicial
  """
+ #Contiene todo lo relacionado con la interacción con el usuario, captura y presenta la inforomación al usuario. 
+ #Se usa para facilitar actualizaciones y cambios la vista y no tiene ninguna mención a las estructuras de datos.
+ #Su función se basa en interactuar con el usuario y comunicar todas las operaciones del usuario al controlador. 
 
 import config as cf
 import sys
@@ -43,6 +46,7 @@ def printMenu():
     print("1- Cargar Libros")
     print("2- Cargar Tags")
     # TO-DO: Modificaciones para completar el laboratorio 1.
+    print('3-Cargar libros y tags')
     print("0- Salir")
 
 
@@ -58,6 +62,12 @@ def loadTags():
     Carga los Tags
     """
     return controller.loadTags('GoodReads/tags.csv')
+
+def loadbookstags():
+    """"
+    Carga los books y los tags
+    """""
+    return controller.loadBooksTags('GoodReads/book_tags-small.csv')
 
 
 """
@@ -76,6 +86,11 @@ while True:
         tags = loadTags()
         print('Total de tags cargados: ' + str(lt.size(tags)))
     # TO-DO: Modificaciones para completar el laboratorio 1.
+    
+    elif int(inputs[0])==3:
+        print('Cargando información de los tags y los libros...')
+        bookstags=loadbookstags()
+        print('Total de books y tags cargados: '+str(lt.size(bookstags)))
 
     else:
         sys.exit(0)
